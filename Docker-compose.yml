@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  flask: 
+    build: .
+    command: gunicorn -b 0.0.0.0:31000 hello:app --reload
+    environment: 
+      - PYTHONBUFFERED=True
+    ports: 
+      - "31000:31000"
+    volumes: 
+      - ./:/home/workdir
